@@ -1,0 +1,78 @@
+JSON
+
+{
+  // INSTRUCTION: Describe the setting and environment where your video takes place. Be vivid and specific about the location, atmosphere, and surroundings.
+  "scene": "_a detailed description of the scene and environment_",
+  
+  // INSTRUCTION: Define who appears in your video. Include physical appearance, clothing, facial expressions, and emotional state. Be consistent with character descriptions.
+  "character": "_a detailed description of the character(s), including appearance, clothing, and emotions_",
+  
+  // INSTRUCTION: Specify how the camera should frame and move. Include shot type (wide, close-up, etc.), camera movement, and angle for cinematic control.
+  "camera": "_camera shot, movement, and angle (e.g., 'wide shot, with a slow pull-back', 'close-up on the dog\\'s paws')_",
+  
+  // INSTRUCTION: Control the lighting mood and atmosphere. Describe the lighting style, color temperature, and intensity to set the right tone.
+  "lighting": "_the style and color of the lighting (e.g., 'cool blue hues, with neon glows', 'soft and natural lighting')_",
+  
+  // INSTRUCTION: Set the overall visual aesthetic and mood. Choose a style that matches your video's purpose and target audience.
+  "style": "_the overall visual style of the video (e.g., 'cinematic, magical realism', 'playful, comedic')_",
+  
+  // INSTRUCTION: Define all audio elements for your video. Veo 3 can generate native audio, so be specific about dialogue, sounds, and music.
+  "audio": {
+    "dialogue": "_any dialogue spoken by characters_",
+    "sound_effects": "_specific sound effects (e.g., 'wind howling', 'twigs snapping underfoot')_",
+    "background_music": "_description of background music (e.g., 'upbeat, quirky background music')_"
+  },
+  
+  // INSTRUCTION: Provide reference media to guide the AI's generation. Include URLs to images or videos that show the style, composition, or elements you want.
+  "visuals": {
+    "reference_images": [
+      {
+        "url": "_a URL for a reference image_",
+        "description": "_a brief description of what the image is for_"
+      }
+    ],
+    "reference_videos": [
+      {
+        "url": "_a URL for a reference video_",
+        "description": "_a brief description of what the video is for_"
+      }
+    ]
+  },
+  
+  // INSTRUCTION: List elements you want to avoid in your video. This helps prevent unwanted artifacts, styles, or content from appearing.
+  "negative_prompt": "_what to avoid in the video (e.g., 'cartoonish fish, sunny days, cities, people, roads')_",
+  
+  // INSTRUCTION: Break down your video into sequential steps. Each step should describe a specific action, shot, or scene transition in chronological order.
+  "action_sequence": [
+    {
+      "step": 1,
+      "description": "_a detailed description of the first action or shot_",
+      "transition": "_transition type to next scene (optional)_",
+      "duration": "_duration of this step (optional)_"
+    },
+    {
+      "step": 2,
+      "description": "_a detailed description of the second action or shot_",
+      "transition": "_transition type to next scene (optional)_",
+      "duration": "_duration of this step (optional)_"
+    }
+  ],
+  
+  // INSTRUCTION: Define how scenes transition between each other and the overall pacing rhythm of your video. This controls the flow and energy of your video.
+  "transitions": {
+    "between_scenes": "_overall transition style used throughout the video_",
+    "overall_rhythm": "_the pacing and rhythm of transitions (fast, medium, slow, varied)_"
+  }
+}
+How to Use the Template
+Scene Description: In the "scene" field, provide a vivid description of the setting. Be as detailed as possible to help the AI generate the desired environment.
+
+Character and Action: The "character" and "action_sequence" fields let you define who is in the video and what they're doing. This is where you can specify character consistency.
+
+Technical Elements: The "camera", "lighting", and "style" fields allow you to control the cinematography of the video. Specifying these elements gives you granular control over the final output.
+
+Audio Integration: Use the "audio" object to detail dialogue, sound effects, and music. Veo 3 can generate native audio, so being specific here is crucial for a complete video.
+
+Image and Video References: The "visuals" object is where you can include URLs for images or videos that you want the AI to use as a starting point or a visual guide. This is key for incorporating your own media. Veo 3 API documentation shows that it can generate a video from an image, which you can specify with an image URL in your prompt.
+
+Negative Prompts: The "negative_prompt" field is where you list elements you want the AI to avoid. This is a powerful way to refine your video and prevent unwanted artifacts or themes.

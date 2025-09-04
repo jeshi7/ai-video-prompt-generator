@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-3 px-6 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200;
+  }
+  
+  .select-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white transition-all duration-200;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow duration-200;
+  }
+  
+  .section-header {
+    @apply text-xl font-semibold text-gray-800 mb-4 flex items-center gap-3;
+  }
+  
+  .form-section {
+    @apply space-y-6 p-6 bg-white rounded-xl shadow-sm border border-gray-200;
+  }
+  
+  .transition-card {
+    @apply border-2 border-dashed border-blue-200 bg-blue-50 rounded-lg p-4 transition-all duration-200 hover:border-blue-300 hover:bg-blue-100;
+  }
+  
+  .upload-area {
+    @apply border-2 border-dashed border-gray-300 rounded-lg p-6 text-center transition-all duration-200 hover:border-gray-400 hover:bg-gray-50;
+  }
+  
+  .upload-area.dragover {
+    @apply border-blue-400 bg-blue-50;
+  }
+  
+  .media-preview {
+    @apply border border-gray-200 rounded-lg p-2 bg-gray-50;
+  }
+  
+  .upload-button {
+    @apply relative overflow-hidden;
+  }
+  
+  .upload-button input[type="file"] {
+    @apply absolute inset-0 w-full h-full opacity-0 cursor-pointer;
+  }
+}
+
