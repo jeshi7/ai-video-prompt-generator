@@ -7,6 +7,8 @@ import { ActionSequenceSection } from './components/ActionSequenceSection';
 import { JSONOutput } from './components/JSONOutput';
 import { AISuggestions } from './components/AISuggestions';
 import { UploadSetupInstructions } from './components/UploadSetupInstructions';
+import { VideoTemplates } from './components/VideoTemplates';
+import { FormProgress } from './components/FormProgress';
 import { generateVideoPrompt } from './utils/generatePrompt';
 import {
   cameraOptions,
@@ -48,6 +50,14 @@ function App() {
     });
   };
 
+  const handleApplyTemplate = (templateData: Partial<FormData>) => {
+    Object.entries(templateData).forEach(([key, value]) => {
+      if (value && key in formData) {
+        updateField(key as keyof typeof formData, value);
+      }
+    });
+  };
+
   // File upload is now handled directly in ReferenceMediaSection using the upload service
 
   const videoPrompt = generateVideoPrompt(formData);
@@ -75,6 +85,12 @@ function App() {
               </h2>
 
               <div className="space-y-6">
+                {/* Form Progress */}
+                <FormProgress formData={formData} />
+
+                {/* Video Templates */}
+                <VideoTemplates onApplyTemplate={handleApplyTemplate} />
+
                 {/* Initial Prompt */}
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
                   <h4 className="text-blue-800 font-semibold mb-2">📝 Basic Prompt Creation</h4>

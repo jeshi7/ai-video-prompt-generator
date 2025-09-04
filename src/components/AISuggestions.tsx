@@ -76,32 +76,102 @@ export const AISuggestions: React.FC<AISuggestionsProps> = ({
       </div>
       
       {suggestions && (
-        <div className="mt-4 p-3 bg-white rounded border border-purple-200">
-          <h4 className="font-medium text-gray-800 mb-2">Generated Suggestions:</h4>
-          <div className="space-y-2 text-sm">
+        <div className="mt-4 p-4 bg-white rounded-lg border border-purple-200">
+          <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
+            <Sparkles size={16} className="text-purple-600" />
+            Generated Suggestions:
+          </h4>
+          <div className="space-y-3 text-sm">
             {suggestions.scene && (
-              <div>
-                <strong>Scene:</strong> {suggestions.scene}
+              <div className="p-2 bg-blue-50 rounded border-l-4 border-blue-400">
+                <strong className="text-blue-800">Scene:</strong>
+                <p className="text-blue-700 mt-1">{suggestions.scene}</p>
               </div>
             )}
             {suggestions.character && (
-              <div>
-                <strong>Character:</strong> {suggestions.character}
+              <div className="p-2 bg-green-50 rounded border-l-4 border-green-400">
+                <strong className="text-green-800">Character:</strong>
+                <p className="text-green-700 mt-1">{suggestions.character}</p>
               </div>
             )}
             {suggestions.style && (
-              <div>
-                <strong>Style:</strong> {suggestions.style}
+              <div className="p-2 bg-purple-50 rounded border-l-4 border-purple-400">
+                <strong className="text-purple-800">Style:</strong>
+                <div className="text-purple-700 mt-1">
+                  {Array.isArray(suggestions.style) ? (
+                    <ul className="list-disc list-inside space-y-1">
+                      {suggestions.style.map((style, index) => (
+                        <li key={index}>{style}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p>{suggestions.style}</p>
+                  )}
+                </div>
               </div>
             )}
             {suggestions.camera && (
-              <div>
-                <strong>Camera:</strong> {suggestions.camera}
+              <div className="p-2 bg-orange-50 rounded border-l-4 border-orange-400">
+                <strong className="text-orange-800">Camera:</strong>
+                <div className="text-orange-700 mt-1">
+                  {Array.isArray(suggestions.camera) ? (
+                    <ul className="list-disc list-inside space-y-1">
+                      {suggestions.camera.map((camera, index) => (
+                        <li key={index}>{camera}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p>{suggestions.camera}</p>
+                  )}
+                </div>
               </div>
             )}
             {suggestions.lighting && (
-              <div>
-                <strong>Lighting:</strong> {suggestions.lighting}
+              <div className="p-2 bg-yellow-50 rounded border-l-4 border-yellow-400">
+                <strong className="text-yellow-800">Lighting:</strong>
+                <div className="text-yellow-700 mt-1">
+                  {Array.isArray(suggestions.lighting) ? (
+                    <ul className="list-disc list-inside space-y-1">
+                      {suggestions.lighting.map((lighting, index) => (
+                        <li key={index}>{lighting}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p>{suggestions.lighting}</p>
+                  )}
+                </div>
+              </div>
+            )}
+            {suggestions.soundEffects && (
+              <div className="p-2 bg-indigo-50 rounded border-l-4 border-indigo-400">
+                <strong className="text-indigo-800">Sound Effects:</strong>
+                <div className="text-indigo-700 mt-1">
+                  {Array.isArray(suggestions.soundEffects) ? (
+                    <ul className="list-disc list-inside space-y-1">
+                      {suggestions.soundEffects.map((sound, index) => (
+                        <li key={index}>{sound}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p>{suggestions.soundEffects}</p>
+                  )}
+                </div>
+              </div>
+            )}
+            {suggestions.backgroundMusic && (
+              <div className="p-2 bg-pink-50 rounded border-l-4 border-pink-400">
+                <strong className="text-pink-800">Background Music:</strong>
+                <div className="text-pink-700 mt-1">
+                  {Array.isArray(suggestions.backgroundMusic) ? (
+                    <ul className="list-disc list-inside space-y-1">
+                      {suggestions.backgroundMusic.map((music, index) => (
+                        <li key={index}>{music}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p>{suggestions.backgroundMusic}</p>
+                  )}
+                </div>
               </div>
             )}
           </div>

@@ -53,6 +53,10 @@
     @apply border border-gray-200 rounded-lg p-2 bg-gray-50;
   }
   
+  .progress-bar {
+    transition: width 0.3s ease-in-out;
+  }
+  
   .upload-button {
     @apply relative overflow-hidden;
   }
