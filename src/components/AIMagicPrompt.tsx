@@ -124,40 +124,44 @@ export const AIMagicPrompt: React.FC<AIMagicPromptProps> = ({ onApplyMagicPrompt
   };
 
   const generateCharacterDescription = (businessType: string, isProfessional: boolean): string => {
-    const characters = {
-      auto_mechanic: 'Experienced auto mechanic in clean work uniform, confident and knowledgeable, with friendly demeanor and professional appearance',
-      restaurant: 'Chef or restaurant staff in clean uniform, passionate about food, with warm smile and professional presentation',
-      retail: 'Friendly sales associate in professional attire, knowledgeable about products, with approachable personality and helpful attitude',
-      technology: 'Tech professional in modern casual attire, innovative and confident, with approachable demeanor and expertise',
-      fitness: 'Fitness trainer in athletic wear, energetic and motivating, with professional appearance and encouraging attitude',
-      general_business: 'Professional business person in appropriate attire, confident and approachable, with friendly demeanor and expertise'
+    // Veo 3 Meta Framework: Character with 15+ specific physical attributes for consistency
+    const characterTemplates = {
+      auto_mechanic: `Marcus, a 35-year-old African-American male with short black hair, brown eyes, strong jawline, athletic build (6'0", 180lbs), wearing navy blue work uniform with company logo, steel-toed boots, tool belt, confident posture, warm smile, professional demeanor, distinctive mechanic's hands with calluses, gold wedding ring, clean-shaven, approachable expression, authoritative voice with slight Southern accent`,
+      restaurant: `Elena, a 28-year-old Hispanic female with long dark hair in a ponytail, hazel eyes, warm smile, petite build (5'4", 120lbs), wearing white chef's jacket, black pants, comfortable shoes, confident stance, passionate expression, professional grooming, minimal makeup, clean hands, silver necklace, energetic movements, clear speaking voice with slight Spanish accent`,
+      retail: `David, a 32-year-old Caucasian male with styled brown hair, blue eyes, friendly face, medium build (5'10", 165lbs), wearing navy blazer, white shirt, dark jeans, polished shoes, confident posture, approachable smile, professional appearance, clean-shaven, neat grooming, silver watch, helpful gestures, clear articulate speech`,
+      technology: `Sarah, a 29-year-old Asian-American female with shoulder-length black hair, dark brown eyes, intelligent expression, slim build (5'6", 130lbs), wearing modern blouse, dark jeans, comfortable sneakers, confident stance, innovative demeanor, professional grooming, minimal jewelry, tech-savvy appearance, clear communication style`,
+      fitness: `Jake, a 26-year-old Caucasian male with short blonde hair, green eyes, athletic features, muscular build (6'2", 190lbs), wearing athletic shirt, workout shorts, running shoes, energetic posture, motivational expression, fit physique, clean grooming, fitness tracker, dynamic movements, enthusiastic voice`,
+      general_business: `Alex, a 30-year-old mixed-race individual with professional hairstyle, brown eyes, confident features, average build (5'8", 150lbs), wearing business attire, polished shoes, professional posture, approachable smile, clean grooming, minimal accessories, confident gestures, clear articulate speech`
     };
 
-    let character = characters[businessType as keyof typeof characters] || characters.general_business;
+    let character = characterTemplates[businessType as keyof typeof characterTemplates] || characterTemplates.general_business;
     
     if (isProfessional) {
-      character += ' Professional presentation with polished appearance and business-appropriate styling.';
+      character += ', executive presence with polished appearance and business-appropriate styling';
     }
 
     return character;
   };
 
   const generateCameraOptions = (isCinematic: boolean, isNeon: boolean): string[] => {
+    // Veo 3 Meta Framework: Camera positioning with explicit "(thats where the camera is)" syntax
     const baseOptions = [
-      'medium shot with rule of thirds composition, balancing character presence with environmental context',
-      'establishing wide shot with deep focus, revealing the spatial relationship between characters and environment'
+      'medium shot with rule of thirds composition, balancing character presence with environmental context (thats where the camera is)',
+      'establishing wide shot with deep focus, revealing the spatial relationship between characters and environment (thats where the camera is)'
     ];
 
     if (isCinematic) {
       baseOptions.push(
-        'intimate close-up with shallow depth of field, isolating emotional expression and creating psychological proximity',
-        'low angle shot with upward perspective, creating psychological dominance and heroic framing'
+        'intimate close-up with shallow depth of field, isolating emotional expression and creating psychological proximity (thats where the camera is)',
+        'low angle shot with upward perspective, creating psychological dominance and heroic framing (thats where the camera is)',
+        'dolly in shot with smooth camera movement, creating emotional impact and intimacy control (thats where the camera is)'
       );
     }
 
     if (isNeon) {
       baseOptions.push(
-        'dynamic tilt shot with vertical movement, creating disorientation or dramatic emphasis'
+        'dynamic tilt shot with vertical movement, creating disorientation or dramatic emphasis (thats where the camera is)',
+        'handheld shot with natural camera shake, creating authenticity and energy (thats where the camera is)'
       );
     }
 
@@ -213,31 +217,37 @@ export const AIMagicPrompt: React.FC<AIMagicPromptProps> = ({ onApplyMagicPrompt
   };
 
   const generateDialogue = (businessType: string, businessName: string): string => {
+    // Veo 3 Meta Framework: Colon syntax prevents unwanted subtitles
     const dialogues = {
-      auto_mechanic: `"At ${businessName}, we provide reliable auto repair services with honest pricing and expert craftsmanship. Your vehicle is in good hands with our certified technicians."`,
-      restaurant: `"Welcome to ${businessName}, where we serve fresh, locally-sourced ingredients with authentic flavors. Experience the taste of quality in every dish."`,
-      retail: `"Discover quality products at ${businessName}. We're committed to providing excellent customer service and the best selection for your needs."`,
-      technology: `"Innovation meets excellence at ${businessName}. We deliver cutting-edge solutions with reliable support and professional expertise."`,
-      fitness: `"Transform your fitness journey at ${businessName}. Our state-of-the-art facilities and expert trainers are here to help you achieve your goals."`,
-      general_business: `"Experience the difference at ${businessName}. We're committed to providing exceptional service and building lasting relationships with our customers."`
+      auto_mechanic: `The mechanic looks directly at camera and says: "At ${businessName}, we provide reliable auto repair services with honest pricing and expert craftsmanship." His voice carries genuine confidence and expertise.`,
+      restaurant: `The chef looks directly at camera and says: "Welcome to ${businessName}, where we serve fresh, locally-sourced ingredients with authentic flavors." Her voice carries passion and warmth.`,
+      retail: `The sales associate looks directly at camera and says: "Discover quality products at ${businessName}. We're committed to providing excellent customer service." His voice carries helpful enthusiasm.`,
+      technology: `The tech professional looks directly at camera and says: "Innovation meets excellence at ${businessName}. We deliver cutting-edge solutions with reliable support." Her voice carries confidence and expertise.`,
+      fitness: `The trainer looks directly at camera and says: "Transform your fitness journey at ${businessName}. Our state-of-the-art facilities are here to help you achieve your goals." His voice carries motivation and energy.`,
+      general_business: `The business professional looks directly at camera and says: "Experience the difference at ${businessName}. We're committed to providing exceptional service." Their voice carries confidence and professionalism.`
     };
 
     return dialogues[businessType as keyof typeof dialogues] || dialogues.general_business;
   };
 
   const generateSoundEffects = (businessType: string, isCinematic: boolean): string[] => {
-    const baseEffects = ['subtle ambient sounds, professional environment'];
+    // Veo 3 Meta Framework: Audio hallucination prevention with specific environmental context
+    const baseEffects = ['clean studio acoustics, professional microphone quality, minimal background noise, broadcast-standard clarity'];
 
     if (businessType === 'auto_mechanic') {
-      baseEffects.push('mechanical sounds, tool usage, engine sounds');
+      baseEffects.push('mechanical sounds, tool usage, engine sounds, no unwanted background music, professional workshop ambiance');
     } else if (businessType === 'restaurant') {
-      baseEffects.push('kitchen sounds, sizzling, ambient dining atmosphere');
+      baseEffects.push('kitchen sounds, sizzling, ambient dining atmosphere, no audience sounds, professional restaurant ambiance');
     } else if (businessType === 'fitness') {
-      baseEffects.push('equipment sounds, motivational atmosphere');
+      baseEffects.push('equipment sounds, motivational atmosphere, no distracting music, professional gym ambiance');
+    } else if (businessType === 'technology') {
+      baseEffects.push('office sounds, keyboard typing, computer fans, no unwanted audio, professional tech environment');
+    } else {
+      baseEffects.push('professional environment sounds, no unwanted background music, clean audio quality');
     }
 
     if (isCinematic) {
-      baseEffects.push('dramatic ambient sounds, atmospheric audio');
+      baseEffects.push('dramatic ambient sounds, atmospheric audio, no live studio audience, professional film quality');
     }
 
     return baseEffects;
@@ -262,79 +272,87 @@ export const AIMagicPrompt: React.FC<AIMagicPromptProps> = ({ onApplyMagicPrompt
   };
 
   const generateNegativePrompt = (isCinematic: boolean, isNeon: boolean): string[] => {
-    const baseNegatives = ['blurry, low quality, distorted'];
+    // Veo 3 Meta Framework: Comprehensive negative prompting for quality control
+    const baseNegatives = [
+      'subtitles, captions, watermark, text overlays, words on screen, logo, branding',
+      'poor lighting, blurry footage, low resolution, artifacts, unwanted objects',
+      'inconsistent character appearance, audio sync issues, amateur quality',
+      'cartoon effects, unrealistic proportions, distorted hands, artificial lighting',
+      'oversaturation, compression noise, camera shake, motion blur'
+    ];
 
     if (isCinematic) {
-      baseNegatives.push('cartoonish, animated, unrealistic');
+      baseNegatives.push('amateur cinematography, poor composition, inconsistent lighting');
     }
 
     if (isNeon) {
-      baseNegatives.push('dull colors, low contrast');
+      baseNegatives.push('dull colors, low contrast, muted tones, flat lighting');
     }
 
     return baseNegatives;
   };
 
   const generateActionSequence = (businessType: string, businessName: string, isCinematic: boolean): any[] => {
+    // Veo 3 Meta Framework: Optimized for 8-second duration with professional pacing
     const sequences = {
       auto_mechanic: [
         {
           step: 1,
-          description: `Opening shot of ${businessName} exterior with professional signage and clean appearance`,
+          description: `Opening shot of ${businessName} exterior with professional signage and clean appearance, establishing credibility and trust`,
           transition: 'smooth cut to interior',
-          duration: '3 seconds'
+          duration: '2.5 seconds'
         },
         {
           step: 2,
-          description: 'Mechanic working on vehicle with precision and expertise, showcasing professional service',
+          description: 'Mechanic working on vehicle with precision and expertise, showcasing professional service and technical competence',
           transition: 'cross dissolve',
-          duration: '4 seconds'
+          duration: '3 seconds'
         },
         {
           step: 3,
-          description: 'Customer interaction showing trust and satisfaction with the service provided',
+          description: 'Customer interaction showing trust and satisfaction with the service provided, building emotional connection',
           transition: 'fade to black',
-          duration: '3 seconds'
+          duration: '2.5 seconds'
         }
       ],
       restaurant: [
         {
           step: 1,
-          description: `Wide shot of ${businessName} restaurant exterior with inviting atmosphere`,
+          description: `Wide shot of ${businessName} restaurant exterior with inviting atmosphere, creating appetite appeal`,
           transition: 'smooth cut to interior',
-          duration: '3 seconds'
+          duration: '2.5 seconds'
         },
         {
           step: 2,
-          description: 'Chef preparing fresh ingredients with passion and culinary expertise',
+          description: 'Chef preparing fresh ingredients with passion and culinary expertise, demonstrating quality and authenticity',
           transition: 'cross dissolve',
-          duration: '4 seconds'
+          duration: '3 seconds'
         },
         {
           step: 3,
-          description: 'Customers enjoying their meal with satisfied expressions and warm atmosphere',
+          description: 'Customers enjoying their meal with satisfied expressions and warm atmosphere, showing social proof',
           transition: 'fade to black',
-          duration: '3 seconds'
+          duration: '2.5 seconds'
         }
       ],
       general_business: [
         {
           step: 1,
-          description: `Establishing shot of ${businessName} business location with professional appearance`,
+          description: `Establishing shot of ${businessName} business location with professional appearance, building authority`,
           transition: 'smooth cut to interior',
-          duration: '3 seconds'
+          duration: '2.5 seconds'
         },
         {
           step: 2,
-          description: 'Staff providing excellent customer service with professional expertise',
+          description: 'Staff providing excellent customer service with professional expertise, demonstrating competence',
           transition: 'cross dissolve',
-          duration: '4 seconds'
+          duration: '3 seconds'
         },
         {
           step: 3,
-          description: 'Customer satisfaction and positive interaction showcasing business value',
+          description: 'Customer satisfaction and positive interaction showcasing business value, creating trust',
           transition: 'fade to black',
-          duration: '3 seconds'
+          duration: '2.5 seconds'
         }
       ]
     };

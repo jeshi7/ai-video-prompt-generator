@@ -10,6 +10,7 @@ import { UploadSetupInstructions } from './components/UploadSetupInstructions';
 import { VideoTemplates } from './components/VideoTemplates';
 import { FormProgress } from './components/FormProgress';
 import { AIMagicPrompt } from './components/AIMagicPrompt';
+import { Veo3Insights } from './components/Veo3Insights';
 import { generateVideoPrompt } from './utils/generatePrompt';
 import {
   cameraOptions,
@@ -96,6 +97,9 @@ function App() {
               <div className="space-y-6">
                 {/* AI Magic Prompt */}
                 <AIMagicPrompt onApplyMagicPrompt={handleApplyMagicPrompt} />
+
+                {/* Veo 3 Meta Framework Insights */}
+                <Veo3Insights />
 
                 {/* Form Progress */}
                 <FormProgress formData={formData} />

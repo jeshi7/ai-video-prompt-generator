@@ -1,24 +1,24 @@
 import { DropdownOption } from '../types';
 
 export const cameraOptions: DropdownOption[] = [
-  { value: "establishing wide shot with deep focus, revealing the spatial relationship between characters and environment", label: "Establishing Wide Shot (Deep Focus)" },
-  { value: "intimate close-up with shallow depth of field, isolating emotional expression and creating psychological proximity", label: "Intimate Close-up (Shallow DOF)" },
-  { value: "medium shot with rule of thirds composition, balancing character presence with environmental context", label: "Medium Shot (Rule of Thirds)" },
-  { value: "extreme close-up with macro detail, emphasizing symbolic or narrative significance of specific elements", label: "Extreme Close-up (Macro Detail)" },
-  { value: "low angle shot with upward perspective, creating psychological dominance and heroic framing", label: "Low Angle (Heroic Perspective)" },
-  { value: "high angle shot with downward perspective, establishing vulnerability and environmental scale", label: "High Angle (Vulnerable Perspective)" },
-  { value: "over-the-shoulder shot with shallow focus, creating spatial depth and character interaction", label: "Over-the-Shoulder (Spatial Depth)" },
-  { value: "fluid tracking shot with Steadicam movement, following character through space with cinematic grace", label: "Tracking Shot (Steadicam)" },
-  { value: "sweeping pan shot with horizontal movement, revealing narrative information through spatial exploration", label: "Panning Shot (Spatial Reveal)" },
-  { value: "dynamic tilt shot with vertical movement, creating disorientation or dramatic emphasis", label: "Tilt Shot (Dynamic Emphasis)" },
-  { value: "smooth dolly shot with forward/backward movement, creating psychological intimacy or distance", label: "Dolly Shot (Psychological Distance)" },
-  { value: "handheld shot with natural camera shake, creating documentary realism and emotional immediacy", label: "Handheld (Documentary Realism)" },
-  { value: "static shot with locked-off camera, emphasizing composition and allowing action to unfold within frame", label: "Static Shot (Compositional Focus)" },
-  { value: "bird's eye view with omniscient perspective, establishing spatial relationships and narrative overview", label: "Bird's Eye (Omniscient View)" },
-  { value: "dutch angle with tilted composition, creating psychological unease and narrative tension", label: "Dutch Angle (Psychological Tension)" },
-  { value: "rack focus shot transitioning between foreground and background elements, guiding viewer attention", label: "Rack Focus (Attention Guide)" },
-  { value: "crane shot with vertical movement, revealing scale and creating dramatic emphasis", label: "Crane Shot (Dramatic Scale)" },
-  { value: "whip pan with rapid horizontal movement, creating energy and temporal transition", label: "Whip Pan (Temporal Transition)" }
+  { value: "establishing wide shot with deep focus, revealing the spatial relationship between characters and environment (thats where the camera is)", label: "Establishing Wide Shot (Deep Focus)" },
+  { value: "intimate close-up with shallow depth of field, isolating emotional expression and creating psychological proximity (thats where the camera is)", label: "Intimate Close-up (Shallow DOF)" },
+  { value: "medium shot with rule of thirds composition, balancing character presence with environmental context (thats where the camera is)", label: "Medium Shot (Rule of Thirds)" },
+  { value: "extreme close-up with macro detail, emphasizing symbolic or narrative significance of specific elements (thats where the camera is)", label: "Extreme Close-up (Macro Detail)" },
+  { value: "low angle shot with upward perspective, creating psychological dominance and heroic framing (thats where the camera is)", label: "Low Angle (Heroic Perspective)" },
+  { value: "high angle shot with downward perspective, establishing vulnerability and environmental scale (thats where the camera is)", label: "High Angle (Vulnerable Perspective)" },
+  { value: "over-the-shoulder shot with shallow focus, creating spatial depth and character interaction (thats where the camera is)", label: "Over-the-Shoulder (Spatial Depth)" },
+  { value: "fluid tracking shot with Steadicam movement, following character through space with cinematic grace (thats where the camera is)", label: "Tracking Shot (Steadicam)" },
+  { value: "sweeping pan shot with horizontal movement, revealing narrative information through spatial exploration (thats where the camera is)", label: "Panning Shot (Spatial Reveal)" },
+  { value: "dynamic tilt shot with vertical movement, creating disorientation or dramatic emphasis (thats where the camera is)", label: "Tilt Shot (Dynamic Emphasis)" },
+  { value: "smooth dolly shot with forward/backward movement, creating psychological intimacy or distance (thats where the camera is)", label: "Dolly Shot (Psychological Distance)" },
+  { value: "handheld shot with natural camera shake, creating documentary realism and emotional immediacy (thats where the camera is)", label: "Handheld (Documentary Realism)" },
+  { value: "static shot with locked-off camera, emphasizing composition and allowing action to unfold within frame (thats where the camera is)", label: "Static Shot (Compositional Focus)" },
+  { value: "bird's eye view with omniscient perspective, establishing spatial relationships and narrative overview (thats where the camera is)", label: "Bird's Eye (Omniscient View)" },
+  { value: "dutch angle with tilted composition, creating psychological unease and narrative tension (thats where the camera is)", label: "Dutch Angle (Psychological Tension)" },
+  { value: "rack focus shot transitioning between foreground and background elements, guiding viewer attention (thats where the camera is)", label: "Rack Focus (Attention Guide)" },
+  { value: "crane shot with vertical movement, revealing scale and creating dramatic emphasis (thats where the camera is)", label: "Crane Shot (Dramatic Scale)" },
+  { value: "whip pan with rapid horizontal movement, creating energy and temporal transition (thats where the camera is)", label: "Whip Pan (Temporal Transition)" }
 ];
 
 export const lightingOptions: DropdownOption[] = [
