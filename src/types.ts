@@ -33,7 +33,7 @@ export interface ActionStep {
   duration?: string;
 }
 
-export interface FormData {
+export interface VideoFormData {
   initialPrompt: string;
   scene: string;
   character: string;

@@ -7,7 +7,7 @@ interface JSONOutputProps {
 }
 
 export const JSONOutput: React.FC<JSONOutputProps> = ({ prompt }) => {
-  const [copied, setCopied] = useState(false);
+  // const [copied, setCopied] = useState(false);
   const [exportFormat, setExportFormat] = useState<'json' | 'yaml' | 'text'>('json');
   const [copiedFormat, setCopiedFormat] = useState<string | null>(null);
   
@@ -181,7 +181,7 @@ const convertToYAML = (prompt: VideoPrompt): string => {
   if (prompt.visuals.reference_images.length > 0) {
     lines.push('visuals:');
     lines.push('  reference_images:');
-    prompt.visuals.reference_images.forEach((img, index) => {
+    prompt.visuals.reference_images.forEach((img, _index) => {
       lines.push(`    - url: ${img.url}`);
       lines.push(`      description: ${img.description}`);
     });
@@ -193,7 +193,7 @@ const convertToYAML = (prompt: VideoPrompt): string => {
       lines.push('visuals:');
     }
     lines.push('  reference_videos:');
-    prompt.visuals.reference_videos.forEach((vid, index) => {
+    prompt.visuals.reference_videos.forEach((vid, _index) => {
       lines.push(`    - url: ${vid.url}`);
       lines.push(`      description: ${vid.description}`);
     });
@@ -206,7 +206,7 @@ const convertToYAML = (prompt: VideoPrompt): string => {
   
   if (prompt.action_sequence.length > 0) {
     lines.push('action_sequence:');
-    prompt.action_sequence.forEach((step, index) => {
+    prompt.action_sequence.forEach((step, _index) => {
       lines.push(`  - step: ${step.step}`);
       lines.push(`    description: |`);
       lines.push(`      ${step.description}`);
@@ -267,8 +267,8 @@ const convertToText = (prompt: VideoPrompt): string => {
   
   if (prompt.visuals.reference_images.length > 0) {
     lines.push('REFERENCE IMAGES:');
-    prompt.visuals.reference_images.forEach((img, index) => {
-      lines.push(`${index + 1}. ${img.url}`);
+    prompt.visuals.reference_images.forEach((img, _index) => {
+      lines.push(`${_index + 1}. ${img.url}`);
       lines.push(`   ${img.description}`);
     });
     lines.push('');
@@ -276,8 +276,8 @@ const convertToText = (prompt: VideoPrompt): string => {
   
   if (prompt.visuals.reference_videos.length > 0) {
     lines.push('REFERENCE VIDEOS:');
-    prompt.visuals.reference_videos.forEach((vid, index) => {
-      lines.push(`${index + 1}. ${vid.url}`);
+    prompt.visuals.reference_videos.forEach((vid, _index) => {
+      lines.push(`${_index + 1}. ${vid.url}`);
       lines.push(`   ${vid.description}`);
     });
     lines.push('');
@@ -289,7 +289,7 @@ const convertToText = (prompt: VideoPrompt): string => {
   
   if (prompt.action_sequence.length > 0) {
     lines.push('ACTION SEQUENCE:');
-    prompt.action_sequence.forEach((step, index) => {
+    prompt.action_sequence.forEach((step, _index) => {
       lines.push(`Step ${step.step}: ${step.description}`);
       if (step.transition) {
         lines.push(`  Transition: ${step.transition}`);

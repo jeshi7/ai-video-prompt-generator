@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { FormData, ReferenceMedia, ActionStep } from '../types';
+import { VideoFormData, ReferenceMedia, ActionStep } from '../types';
 
 export const useFormData = () => {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<VideoFormData>({
     initialPrompt: '',
     scene: '',
     character: '',
@@ -20,7 +20,7 @@ export const useFormData = () => {
     transitionRhythm: []
   });
 
-  const updateField = (field: keyof FormData, value: any) => {
+  const updateField = (field: keyof VideoFormData, value: any) => {
     setFormData(prev => ({
       ...prev,
       [field]: value

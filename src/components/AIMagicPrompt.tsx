@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { Sparkles, Wand2, Loader2, ArrowRight, CheckCircle } from 'lucide-react';
-import { FormData } from '../types';
+import { VideoFormData } from '../types';
 
 interface AIMagicPromptProps {
-  onApplyMagicPrompt: (formData: FormData) => void;
+  onApplyMagicPrompt: (formData: VideoFormData) => void;
 }
 
 export const AIMagicPrompt: React.FC<AIMagicPromptProps> = ({ onApplyMagicPrompt }) => {
   const [simplePrompt, setSimplePrompt] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
-  const [generatedData, setGeneratedData] = useState<FormData | null>(null);
+  const [generatedData, setGeneratedData] = useState<VideoFormData | null>(null);
 
   const handleMagicGeneration = async () => {
     if (!simplePrompt.trim()) return;
@@ -36,7 +36,7 @@ export const AIMagicPrompt: React.FC<AIMagicPromptProps> = ({ onApplyMagicPrompt
     }
   };
 
-  const generateComprehensivePrompt = (prompt: string): FormData => {
+  const generateComprehensivePrompt = (prompt: string): VideoFormData => {
     const lowerPrompt = prompt.toLowerCase();
     
     // Extract business type and location
@@ -51,7 +51,7 @@ export const AIMagicPrompt: React.FC<AIMagicPromptProps> = ({ onApplyMagicPrompt
     const isProfessional = lowerPrompt.includes('professional') || lowerPrompt.includes('corporate');
     
     // Generate comprehensive form data
-    const formData: FormData = {
+    const formData: VideoFormData = {
       initialPrompt: prompt,
       scene: generateSceneDescription(businessType, location, businessName, isCinematic, isNeon),
       character: generateCharacterDescription(businessType, isProfessional),
@@ -100,7 +100,7 @@ export const AIMagicPrompt: React.FC<AIMagicPromptProps> = ({ onApplyMagicPrompt
     return 'Business';
   };
 
-  const generateSceneDescription = (businessType: string, location: string, businessName: string, isCinematic: boolean, isNeon: boolean): string => {
+  const generateSceneDescription = (businessType: string, _location: string, businessName: string, isCinematic: boolean, isNeon: boolean): string => {
     const baseScenes = {
       auto_mechanic: `Professional auto repair shop with modern equipment, clean work bays, and organized tool storage. The ${businessName} garage features bright LED lighting, hydraulic lifts, and a customer waiting area with automotive magazines and refreshments.`,
       restaurant: `Cozy restaurant interior with warm lighting, wooden tables, and local artwork. The ${businessName} dining area features an open kitchen concept, fresh ingredients on display, and comfortable seating arrangements.`,
@@ -292,7 +292,7 @@ export const AIMagicPrompt: React.FC<AIMagicPromptProps> = ({ onApplyMagicPrompt
     return baseNegatives;
   };
 
-  const generateActionSequence = (businessType: string, businessName: string, isCinematic: boolean): any[] => {
+  const generateActionSequence = (businessType: string, businessName: string, _isCinematic: boolean): any[] => {
     // Veo 3 Meta Framework: Optimized for 8-second duration with professional pacing
     const sequences = {
       auto_mechanic: [

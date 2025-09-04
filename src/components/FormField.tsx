@@ -95,7 +95,7 @@ export const FormField: React.FC<FormFieldProps> = ({
                       type="checkbox"
                       checked={isChecked}
                       onChange={(e) => handleCheckboxChange(option.value, e.target.checked)}
-                      disabled={isDisabled}
+                      disabled={!!isDisabled}
                       className="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                     />
                     <div className="flex-1 min-w-0">

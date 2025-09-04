@@ -1,15 +1,15 @@
 import React from 'react';
 import { CheckCircle, Circle } from 'lucide-react';
-import { FormData } from '../types';
+import { VideoFormData } from '../types';
 
 interface FormProgressProps {
-  formData: FormData;
+  formData: VideoFormData;
 }
 
 interface ProgressItem {
-  key: keyof FormData;
+  key: keyof VideoFormData;
   label: string;
-  isComplete: (data: FormData) => boolean;
+  isComplete: (data: VideoFormData) => boolean;
   weight: number;
 }
 
@@ -53,7 +53,7 @@ const progressItems: ProgressItem[] = [
   {
     key: 'actionSteps',
     label: 'Action Sequence',
-    isComplete: (data) => data.actionSteps.some(step => step.description.trim().length > 0),
+    isComplete: (data) => data.actionSteps.some((step: any) => step.description.trim().length > 0),
     weight: 2
   },
   {
@@ -112,7 +112,7 @@ export const FormProgress: React.FC<FormProgressProps> = ({ formData }) => {
           const isComplete = item.isComplete(formData);
           return (
             <div
-              key={item.key}
+              key={item.key as string}
               className={`flex items-center gap-2 text-sm ${
                 isComplete ? 'text-green-700' : 'text-gray-500'
               }`}

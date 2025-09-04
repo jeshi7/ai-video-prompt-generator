@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Wand2, RotateCcw } from 'lucide-react';
 import { useFormData } from './hooks/useFormData';
+import { VideoFormData } from './types';
 import { FormField } from './components/FormField';
 import { ReferenceMediaSection } from './components/ReferenceMediaSection';
 import { ActionSequenceSection } from './components/ActionSequenceSection';
@@ -44,7 +45,7 @@ function App() {
     setShowOutput(true);
   };
 
-  const handleApplyAISuggestions = (suggestions: any) => {
+  const handleApplyAISuggestions = (suggestions: Partial<VideoFormData>) => {
     Object.entries(suggestions).forEach(([key, value]) => {
       if (value && key in formData) {
         updateField(key as keyof typeof formData, value);
@@ -52,7 +53,7 @@ function App() {
     });
   };
 
-  const handleApplyTemplate = (templateData: Partial<FormData>) => {
+  const handleApplyTemplate = (templateData: Partial<VideoFormData>) => {
     Object.entries(templateData).forEach(([key, value]) => {
       if (value && key in formData) {
         updateField(key as keyof typeof formData, value);
@@ -60,7 +61,7 @@ function App() {
     });
   };
 
-  const handleApplyMagicPrompt = (magicData: FormData) => {
+  const handleApplyMagicPrompt = (magicData: VideoFormData) => {
     Object.entries(magicData).forEach(([key, value]) => {
       if (value && key in formData) {
         updateField(key as keyof typeof formData, value);

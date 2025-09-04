@@ -1,4 +1,4 @@
-import { FormData, VideoPrompt } from '../types';
+import { VideoFormData, VideoPrompt } from '../types';
 
 const formatArrayToString = (value: string | string[]): string => {
   if (Array.isArray(value)) {
@@ -7,7 +7,7 @@ const formatArrayToString = (value: string | string[]): string => {
   return value;
 };
 
-export const generateVideoPrompt = (formData: FormData): VideoPrompt => {
+export const generateVideoPrompt = (formData: VideoFormData): VideoPrompt => {
   const prompt: VideoPrompt = {
     scene: formData.scene,
     character: formData.character,
@@ -41,10 +41,10 @@ export const generateVideoPrompt = (formData: FormData): VideoPrompt => {
   return prompt;
 };
 
-export const generateAISuggestions = async (initialPrompt: string): Promise<Partial<FormData>> => {
+export const generateAISuggestions = async (initialPrompt: string): Promise<Partial<VideoFormData>> => {
   // This would integrate with an AI service like OpenAI
   // For now, we'll return some basic suggestions based on the prompt
-  const suggestions: Partial<FormData> = {};
+  const suggestions: Partial<VideoFormData> = {};
   
   const lowerPrompt = initialPrompt.toLowerCase();
   

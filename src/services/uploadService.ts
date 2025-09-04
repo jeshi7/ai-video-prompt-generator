@@ -200,7 +200,7 @@ export class UploadService {
   // Main upload method that tries multiple services
   async uploadFile(file: File, onProgress?: (progress: UploadProgress) => void): Promise<UploadResult> {
     const isImage = file.type.startsWith('image/');
-    const isVideo = file.type.startsWith('video/');
+    // const isVideo = file.type.startsWith('video/');
 
     try {
       // For images, try ImgBB first

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Play, Star, Clock, Users, Briefcase, Heart, Zap, Camera } from 'lucide-react';
-import { FormData } from '../types';
+import { Play, Star, Users, Briefcase, Heart, Zap, Camera } from 'lucide-react';
+import { VideoFormData } from '../types';
 
 interface VideoTemplate {
   id: string;
@@ -8,7 +8,7 @@ interface VideoTemplate {
   description: string;
   icon: React.ReactNode;
   category: string;
-  data: Partial<FormData>;
+  data: Partial<VideoFormData>;
 }
 
 const templates: VideoTemplate[] = [
@@ -117,7 +117,7 @@ const templates: VideoTemplate[] = [
 ];
 
 interface VideoTemplatesProps {
-  onApplyTemplate: (template: Partial<FormData>) => void;
+  onApplyTemplate: (template: Partial<VideoFormData>) => void;
 }
 
 export const VideoTemplates: React.FC<VideoTemplatesProps> = ({ onApplyTemplate }) => {

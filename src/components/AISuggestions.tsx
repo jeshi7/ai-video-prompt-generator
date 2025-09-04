@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Sparkles, Loader2 } from 'lucide-react';
 import { generateAISuggestions } from '../utils/generatePrompt';
-import { FormData } from '../types';
+import { VideoFormData } from '../types';
 
 interface AISuggestionsProps {
   initialPrompt: string;
-  onApplySuggestions: (suggestions: Partial<FormData>) => void;
+  onApplySuggestions: (suggestions: Partial<VideoFormData>) => void;
 }
 
 export const AISuggestions: React.FC<AISuggestionsProps> = ({
@@ -13,7 +13,7 @@ export const AISuggestions: React.FC<AISuggestionsProps> = ({
   onApplySuggestions
 }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [suggestions, setSuggestions] = useState<Partial<FormData> | null>(null);
+  const [suggestions, setSuggestions] = useState<Partial<VideoFormData> | null>(null);
 
   const handleGenerateSuggestions = async () => {
     if (!initialPrompt.trim()) return;

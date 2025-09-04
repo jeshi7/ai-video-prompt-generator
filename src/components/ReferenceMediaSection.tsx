@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Plus, Trash2, Upload, Image, Video, FileText, CheckCircle, AlertCircle } from 'lucide-react';
+import { Plus, Trash2, Upload, Image, Video, CheckCircle, AlertCircle } from 'lucide-react';
 import { ReferenceMedia } from '../types';
 import { uploadService, UploadProgress } from '../services/uploadService';
 
@@ -29,7 +29,7 @@ export const ReferenceMediaSection: React.FC<ReferenceMediaSectionProps> = ({
   const acceptedFileTypes = isImageSection 
     ? 'image/*' 
     : 'video/*';
-  const maxFileSize = isImageSection ? 10 * 1024 * 1024 : 100 * 1024 * 1024; // 10MB for images, 100MB for videos
+  // const maxFileSize = isImageSection ? 10 * 1024 * 1024 : 100 * 1024 * 1024; // 10MB for images, 100MB for videos
 
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -103,7 +103,7 @@ export const ReferenceMediaSection: React.FC<ReferenceMediaSectionProps> = ({
       // Create a synthetic event to reuse the upload logic
       const syntheticEvent = {
         target: { files: [file] }
-      } as React.ChangeEvent<HTMLInputElement>;
+      } as unknown as React.ChangeEvent<HTMLInputElement>;
       handleFileUpload(syntheticEvent);
     } else {
       setUploadError(`Please drop a valid ${isImageSection ? 'image' : 'video'} file`);
@@ -165,9 +165,9 @@ export const ReferenceMediaSection: React.FC<ReferenceMediaSectionProps> = ({
               className="bg-blue-600 h-2 rounded-full transition-all duration-300"
               style={{ width: `${uploadProgress.percentage}%` }}
               role="progressbar"
-              aria-valuenow={uploadProgress.percentage.toString()}
-              aria-valuemin="0"
-              aria-valuemax="100"
+                          aria-valuenow={uploadProgress.percentage}
+            aria-valuemin={0}
+            aria-valuemax={100}
               aria-label={`Upload progress: ${uploadProgress.percentage}%`}
             ></div>
           </div>
