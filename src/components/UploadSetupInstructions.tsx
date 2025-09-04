@@ -41,12 +41,12 @@ export const UploadSetupInstructions: React.FC = () => {
                 </a>
               </h4>
               <ul className="text-sm text-gray-600 space-y-1 mb-3">
-                {SETUP_INSTRUCTIONS.IMGBB.steps.map((step, index) => (
+                {SETUP_INSTRUCTIONS.IMGBB.steps.map((step: string, index: number) => (
                   <li key={index}>{step}</li>
                 ))}
               </ul>
               <div className="flex flex-wrap gap-2 mb-3">
-                {SETUP_INSTRUCTIONS.IMGBB.benefits.map((benefit, index) => (
+                {SETUP_INSTRUCTIONS.IMGBB.benefits.map((benefit: string, index: number) => (
                   <span 
                     key={index}
                     className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded"
@@ -84,12 +84,12 @@ export const UploadSetupInstructions: React.FC = () => {
                 </a>
               </h4>
               <ul className="text-sm text-gray-600 space-y-1 mb-3">
-                {SETUP_INSTRUCTIONS.CLOUDINARY.steps.map((step, index) => (
+                {SETUP_INSTRUCTIONS.CLOUDINARY.steps.map((step: string, index: number) => (
                   <li key={index}>{step}</li>
                 ))}
               </ul>
               <div className="flex flex-wrap gap-2 mb-3">
-                {SETUP_INSTRUCTIONS.CLOUDINARY.benefits.map((benefit, index) => (
+                {SETUP_INSTRUCTIONS.CLOUDINARY.benefits.map((benefit: string, index: number) => (
                   <span 
                     key={index}
                     className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded"
