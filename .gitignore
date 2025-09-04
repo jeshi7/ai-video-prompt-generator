@@ -94,8 +94,8 @@ jspm_packages/
 tmp/
 temp/
 
-# Upload configuration (contains API keys)
-src/config/uploadConfig.ts
+# Upload configuration (contains API keys) - commented out for deployment
+# src/config/uploadConfig.ts
 
 # Local development files
 *.local
