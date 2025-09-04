@@ -9,6 +9,7 @@ import { AISuggestions } from './components/AISuggestions';
 import { UploadSetupInstructions } from './components/UploadSetupInstructions';
 import { VideoTemplates } from './components/VideoTemplates';
 import { FormProgress } from './components/FormProgress';
+import { AIMagicPrompt } from './components/AIMagicPrompt';
 import { generateVideoPrompt } from './utils/generatePrompt';
 import {
   cameraOptions,
@@ -58,6 +59,14 @@ function App() {
     });
   };
 
+  const handleApplyMagicPrompt = (magicData: FormData) => {
+    Object.entries(magicData).forEach(([key, value]) => {
+      if (value && key in formData) {
+        updateField(key as keyof typeof formData, value);
+      }
+    });
+  };
+
   // File upload is now handled directly in ReferenceMediaSection using the upload service
 
   const videoPrompt = generateVideoPrompt(formData);
@@ -85,6 +94,9 @@ function App() {
               </h2>
 
               <div className="space-y-6">
+                {/* AI Magic Prompt */}
+                <AIMagicPrompt onApplyMagicPrompt={handleApplyMagicPrompt} />
+
                 {/* Form Progress */}
                 <FormProgress formData={formData} />
 
