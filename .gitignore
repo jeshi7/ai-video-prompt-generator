@@ -99,3 +99,6 @@ src/config/uploadConfig.ts
 
 # Local development files
 *.local
+
+# Separate project directories
+Veo-3-Meta-Framework/

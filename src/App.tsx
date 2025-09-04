@@ -76,6 +76,12 @@ function App() {
 
               <div className="space-y-6">
                 {/* Initial Prompt */}
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+                  <h4 className="text-blue-800 font-semibold mb-2">📝 Basic Prompt Creation</h4>
+                  <p className="text-blue-700 text-sm">
+                    Enter your initial idea below. Use AI suggestions to get started quickly, then fill in scene and character descriptions.
+                  </p>
+                </div>
                 <FormField
                   label="What do you want to create?"
                   value={formData.initialPrompt}
@@ -110,6 +116,21 @@ function App() {
                   type="textarea"
                   required
                 />
+
+                {/* Advanced Configuration */}
+                <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
+                  <h4 className="text-green-800 font-semibold mb-2">⚙️ Advanced Configuration</h4>
+                  <p className="text-green-700 text-sm mb-2">
+                    Configure the technical aspects of your video:
+                  </p>
+                  <ul className="text-green-700 text-sm space-y-1">
+                    <li>• <strong>Camera:</strong> Select up to 3 camera shots and movements</li>
+                    <li>• <strong>Lighting:</strong> Choose up to 2 lighting styles</li>
+                    <li>• <strong>Style:</strong> Pick up to 2 visual styles</li>
+                    <li>• <strong>Audio:</strong> Configure dialogue, sound effects, and music</li>
+                    <li>• <strong>Transitions:</strong> Set overall transition style and rhythm</li>
+                  </ul>
+                </div>
 
                 {/* Camera */}
                 <FormField
@@ -181,6 +202,17 @@ function App() {
                 <UploadSetupInstructions />
 
                 {/* Reference Media */}
+                <div className="bg-purple-50 border border-purple-200 rounded-lg p-4 mb-4">
+                  <h4 className="text-purple-800 font-semibold mb-2">📁 Reference Media</h4>
+                  <p className="text-purple-700 text-sm mb-2">
+                    Add visual references to guide your video generation:
+                  </p>
+                  <ul className="text-purple-700 text-sm space-y-1">
+                    <li>• Upload images or videos for visual reference</li>
+                    <li>• Add URLs for existing media</li>
+                    <li>• Preview all uploaded content</li>
+                  </ul>
+                </div>
                 <ReferenceMediaSection
                   title="Reference Images"
                   items={formData.referenceImages}
@@ -209,6 +241,17 @@ function App() {
                 />
 
                 {/* Action Sequence */}
+                <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 mb-4">
+                  <h4 className="text-orange-800 font-semibold mb-2">🎬 Action Sequences</h4>
+                  <p className="text-orange-700 text-sm mb-2">
+                    Break down your video into detailed steps:
+                  </p>
+                  <ul className="text-orange-700 text-sm space-y-1">
+                    <li>• Break down your video into steps</li>
+                    <li>• Add transitions between scenes</li>
+                    <li>• Set duration for each step</li>
+                  </ul>
+                </div>
                 <ActionSequenceSection
                   actionSteps={formData.actionSteps}
                   onAdd={addActionStep}
@@ -245,6 +288,19 @@ function App() {
                     type="checkbox"
                     maxSelections={2}
                   />
+                </div>
+
+                {/* Generate JSON */}
+                <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-4 mb-4">
+                  <h4 className="text-indigo-800 font-semibold mb-2">🚀 Generate JSON</h4>
+                  <p className="text-indigo-700 text-sm mb-2">
+                    Create your final video prompt:
+                  </p>
+                  <ul className="text-indigo-700 text-sm space-y-1">
+                    <li>• Click "Generate JSON" to create your prompt</li>
+                    <li>• Copy the output for use in AI video generators</li>
+                    <li>• Reset form to start over</li>
+                  </ul>
                 </div>
 
                 {/* Action Buttons */}
